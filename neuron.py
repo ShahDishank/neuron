@@ -73,10 +73,11 @@ for message in st.session_state.messages:
             st.write("**Neuron**")
             st.markdown(message["content"])
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
 
 openai = OpenAI(
-    api_key=OPENAI_API_KEY,
+    api_key=HUGGINGFACE_API_TOKEN,
     base_url="https://api-inference.huggingface.co/v1",
 )
 
