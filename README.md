@@ -3,7 +3,7 @@
 
 Neuron, the dynamic chatbot crafted with Gemma LLM by Google from Hugging Face, offering intuitive interactions and insightful responses.
 
-[Try Neuron]("https://neuron.streamlit.app")
+[Try Neuron]("https://neur0n.streamlit.app")
 ## Environment Variables
 
 To run this project, you will need to add the Hugging Face Read API Token as environment variables to your .env file
