@@ -31,6 +31,13 @@ Install dependencies
   pip install -r requirements.txt
 ```
 
+Change st.secrets to os.getenv in neuron.py file
+
+```python
+HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+# HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
+```
+
 Run the program
 
 ```bash
