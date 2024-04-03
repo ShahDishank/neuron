@@ -42,6 +42,8 @@ st.sidebar.write("")
 with st.sidebar.expander("**Desclaimer**", expanded=False):
     st.markdown("""
         - The chat history will not be saved and automatically cleared after refreshing or closing the website.
+        - If anything happens and an error occured, simply clear the chat and try again.
+        - The default max_token is 3000. If the response stops without completing, try changing the max_token.
         """
         )
 
@@ -73,8 +75,8 @@ for message in st.session_state.messages:
             st.write("**Neuron**")
             st.markdown(message["content"])
 
-# HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
-HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
+HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+# HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
 
 openai = OpenAI(
     api_key=HUGGINGFACE_API_TOKEN,
