@@ -36,7 +36,7 @@ def download():
 img_path = "media_files/home_img.svg"
 with open(img_path, 'r') as f:
     img = f.read()
-st.sidebar.image(img, use_column_width=True)
+st.sidebar.image(img, width=250)
 
 st.sidebar.write("")
 with st.sidebar.expander("**Desclaimer**", expanded=False):
@@ -75,8 +75,8 @@ for message in st.session_state.messages:
             st.write("**Neuron**")
             st.markdown(message["content"])
 
-HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
-# HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
+# HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
 
 openai = OpenAI(
     api_key=HUGGINGFACE_API_TOKEN,
