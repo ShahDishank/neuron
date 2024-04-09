@@ -101,7 +101,7 @@ if prompt:= st.chat_input("Ask to Neuron"):
         st.write("**Neuron**")
         with st.spinner('Generating response...'):
             chat_completion = openai.chat.completions.create(
-                model="google/gemma-7b-it",
+                model="google/gemma-1.1-7b-it",
                 messages=[
                     {"role": m["role"], "content": m["content"]}
                     for m in st.session_state.messages
