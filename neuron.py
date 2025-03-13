@@ -44,7 +44,9 @@ st.markdown("""
 """,
 unsafe_allow_html=True)
 
-con = st.container(height=440)
+st.subheader("")
+
+con = st.container()
 
 initial_user_msg = "Your Name is Neuron and you are a helpful assistant."
 initial_assistant_msg = "Ok! Neuron is ready to help you. Please tell me what you need, and I'll do my best to answer."
@@ -85,8 +87,8 @@ def download():
 HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
 
 openai = OpenAI(
-    api_key=HUGGINGFACE_API_TOKEN,
-    base_url="https://api-inference.huggingface.co/v1",
+    base_url="https://router.huggingface.co/hf-inference/v1",
+    api_key=HUGGINGFACE_API_TOKEN
 )
 
 tokens = st.sidebar.slider("max_tokens", 1000, 5000, 3000)
@@ -101,7 +103,7 @@ if prompt:= st.chat_input("Ask to Neuron"):
         st.write("**Neuron**")
         with st.spinner('Generating response...'):
             chat_completion = openai.chat.completions.create(
-                model="google/gemma-1.1-7b-it",
+                model="google/gemma-2-9b-it",
                 messages=[
                     {"role": m["role"], "content": m["content"]}
                     for m in st.session_state.messages
